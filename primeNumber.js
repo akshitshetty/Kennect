@@ -2,26 +2,14 @@ function isPrime(n)
 {
     let flag=true;
     if (n <= 1) return false;                   //since 1 is not a prime
-    if (n <= 3) return true;                    //since 2 and 3 are prime
-     
-    if (n%2 == 0 || n%3 == 0)                   //eliminating multiple of 2 and 3s
-        return false;
-     
-    for (let i=5; i<n; i++)                    //check if prime
-        if (n%i == 0 )
-            flag=false;
-    if(flag)
-        return true;
-    else 
-        return false;
+    for(let i=2; i <=  Math.sqrt(n); i++) {
+        if(n % i ===0)
+            return false;
+    }
+    return true;
 }
-function nextPrime(N)
-{
- 
-    // Base case
-    if (N <= 1)
-        return 2;
- 
+function nextPrimeDiff(N)
+{ 
     let prime = N;
     let found = false;
  
@@ -35,9 +23,9 @@ function nextPrime(N)
     return prime-N;
 }
 
-const input=23
+const input=3
 if(isPrime(input))                                    //pass input
     console.log(`${input} is a prime Number`)
 else
     console.log(`${input} is NOT a prime Number`)
-console.log(`next prime number is after ${nextPrime(input)} digits from ${input}`)
+console.log(`next prime number is after ${nextPrimeDiff(input)} digits from ${input}`)

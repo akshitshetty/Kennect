@@ -1,5 +1,5 @@
-const getElementById = (element, id) => {
-    const queue = [element];
+const getElementById = (id) => {
+    const queue = [document.body];
     while (queue.length) {
       const curr = queue.shift();
       if (curr.id === id) {
@@ -11,4 +11,4 @@ const getElementById = (element, id) => {
     }
   };
   
-  console.log(getElementById(document.body, 'hello')); 
+  console.log(getElementById('hello')); 
